@@ -89,8 +89,8 @@ To use this project, first clone the repo on your device using the command below
 [(Back to top)](#table-of-contents)
 
 <!-- This is optional and it is used to give the user info on how to use the project after installation. This could be added in the Installation section also. -->
-```八种Tracker包括：```
-
+八种Tracker包括：
+```
 BOOSTING Tracker：和Haar cascades（AdaBoost）背后所用的机器学习算法相同，但是距其诞生已有十多年了。这一追踪器速度较慢，并且表现不好，但是作为元老还是有必要提及的。（最低支持OpenCV 3.0.0）
 
 MIL Tracker：比上一个追踪器更精确，但是失败率比较高。（最低支持OpenCV 3.0.0）
@@ -114,7 +114,7 @@ GOTURN Tracker：这是OpenCV中唯一一深度学习为基础的目标检测器
 如果对准确度的要求不苛刻，想追求速度，那么就选KCF
 
 纯粹想节省时间就用MOSSE
-
+```
 # License
 [(Back to top)](#table-of-contents)
 
