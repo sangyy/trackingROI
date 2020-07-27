@@ -43,7 +43,7 @@ v = cv2.VideoCapture(r'mot.mp4') # video
 # v = cv2.VideoCapture(0)
 
 ret, frame = v.read()
-frame = imutils.resize(frame,width=600)
+frame = imutils.resize(frame,width=800)
 cv2.imshow('Frame',frame)
 bb = cv2.selectROI('Frame',frame)
 tracker.init(frame,bb)
@@ -53,7 +53,7 @@ while True:
     ret, frame = v.read()
     if not ret:
         break
-    frame = imutils.resize(frame,width=600)
+    frame = imutils.resize(frame,width=800)
     (success,box) = tracker.update(frame)
     if success:
         (x,y,w,h) = [int(a) for a in box]
@@ -63,7 +63,7 @@ while True:
     if fps>60: myColor = (20,230,20)
     elif fps>20: myColor = (230,20,20)
     else: myColor = (20,20,230)
-    cv2.putText(frame,str(int(fps)), (75, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, myColor, 2)
+    cv2.putText(frame,"fps:"+str(int(fps)), (75, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, myColor, 2)
 
     cv2.imshow('Frame',frame)
     key = cv2.waitKey(1) & 0xFF
