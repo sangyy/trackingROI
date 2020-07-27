@@ -49,6 +49,7 @@ bb = cv2.selectROI('Frame',frame)
 tracker.init(frame,bb)
 
 while True:
+    timer = cv2.getTickCount()
     ret, frame = v.read()
     if not ret:
         break
@@ -57,8 +58,15 @@ while True:
     if success:
         (x,y,w,h) = [int(a) for a in box]
         cv2.rectangle(frame,(x,y),(x+w,y+h),(100,255,0),2)
+
+    fps = cv2.getTickFrequency() / (cv2.getTickCount() - timer)
+    if fps>60: myColor = (20,230,20)
+    elif fps>20: myColor = (230,20,20)
+    else: myColor = (20,20,230)
+    cv2.putText(frame,str(int(fps)), (75, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, myColor, 2)
+
     cv2.imshow('Frame',frame)
-    key = cv2.waitKey(5) & 0xFF
+    key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):
         break
 v.release()
